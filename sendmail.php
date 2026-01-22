@@ -11,14 +11,14 @@ $mail = new PHPMailer(true);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	try {   
 		//Server settings
-		$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+		$mail->SMTPDebug  = 2;										//SMTP::DEBUG_SERVER;                      //Enable verbose debug output
 		$mail->isSMTP();                                            //Send using SMTP
 		$mail->Host       = 'smtp.gmail.com';                     	//Set the SMTP server to send through
 		$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
 		$mail->Username   = 'kks.0403043@gmail.com';                //SMTP username
 		$mail->Password   = 'kfbswxlgexaxesdu';                     //SMTP password
-		$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;			//Enable implicit TLS encryption
-		$mail->Port       = 465;                               
+		$mail->SMTPSecure = 'TLS';									//PHPMailer::ENCRYPTION_SMTPS;			//Enable implicit TLS encryption
+		$mail->Port       = 587;									//465;                               
 
 		// Email headers
 		$mail->setFrom($_POST['Email'], 'Website Contact');
